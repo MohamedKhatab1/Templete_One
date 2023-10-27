@@ -1,0 +1,494 @@
+/* Start Variables */
+:root {
+    --main-color: #10cab7;
+    --secondery-color: #2c4755;
+    --section-padding: 60px;
+    --section-color:#f6f6f6;
+}
+/* End Variables */
+
+/*Start Global Rules*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-left: 15px;
+}
+/* Small */
+@media (min-width: 768px){
+    .container{
+        width: 750px;;
+    } 
+}
+/* Mediam */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/*End Global Rules*/
+/* Start Compenents */
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+.special-heading + p {
+    margin: -30px 0 0;
+    text-align: center;
+    font-size: 20px;
+    color: #797979;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+        letter-spacing: 0;
+    }
+    .special-heading + p {
+        margin-top: -20px;
+    } 
+}
+/* End Compenents */
+
+/* Start Header */
+.header {
+    padding: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container .logo {
+    width: 60px;
+}
+
+.header .links {
+    /* To make all items inside it position absolute */
+    position: relative;
+}
+.header .links:hover .icon span:nth-child(2){
+    width: 100%;
+}
+
+.header .links .icon {
+    width: 30px;
+    /* This allows the items if there is no enough space to go down */
+    display: flex;
+    flex-wrap: wrap;
+    /* to flip */
+    justify-content: flex-end;
+}
+
+.header .links .icon span {
+    background-color: #333;
+    margin-bottom: 5px ;
+    height: 3px;
+}
+
+.header .links .icon span:first-child{
+    width: 100%;
+}
+.header .links .icon span:nth-child(2){
+    width: 60%;
+    transition: 0.3s;
+}
+.header .links .icon span:last-child{
+    width: 100%;
+}
+.header .links ul {
+    list-style: none;    
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    /* Start under the icon from distance 15px */
+    top: calc(100% + 15px) ;
+    /* To Stop Showing it until the links is hovered */
+    display: none;
+    /* this makes the element show over other elements */
+    z-index: 1;
+}
+
+.header .links:hover ul{
+    display: block;
+}
+.header .links ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color:transparent transparent #f2f2f2 transparent;
+    position: absolute;
+    right: 0;
+    top: -20px;
+    right: 5px;
+}
+
+.header .links ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    /* to make the links move aside the background color */
+    transition: 0.3s;
+}
+
+.header .links ul li a:hover {
+    padding-left: 25px;
+}
+
+.header .links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+/* End Header */
+/* Start Landing */
+.landing {
+    background-image: url(../images/OIP.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    /* If you want the intro text to be in the middle of the landing use possition relative
+    if you want it to be in the middle of the hole screen donot use it  */
+    position: relative;
+}
+
+.landing .intro-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+}
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+}
+.landing .intro-text p{
+    font-size: 19px;
+    line-height: 1.8;
+}
+/* End Landing */
+
+/* Start Features */
+.features {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-color);
+}
+
+.features .feat {
+    text-align: center;
+    padding: 20px;
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    grid-gap: 20px;
+}
+
+.features .container i {
+    color: var(--main-color);
+}
+
+.features .container h3{
+    font-weight: 800px;
+    margin: 30px 0;
+}
+.features .container p{
+    line-height: 1.8;
+    color: #777;
+}
+/* End Features */
+
+/* Start Services */
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+.services .services-content {
+    /* To can fix all columns */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.services .services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+}
+@media (max-width : 767px) {
+    .services .services-content .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.services .services-content .srv i {
+    color: var(--main-color);
+    /* Initial min size 60px but it can increase or decrease depending on the space available */
+    flex-basis: 60px;
+}   
+.services .services-content .srv .text {
+    flex: 1;
+}
+.services .services-content .srv .text h3 {
+    margin: 0 0 20px;
+}
+.services .services-content .srv .text p {
+    color: #777;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.services .services-content  .image {
+    text-align: center;
+    position: relative;
+}
+
+.services .services-content  .image::before{
+    content: "";
+    background-color: var(--secondery-color);
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 80px;
+    height: calc(100% + 100px);
+    z-index: -1;
+}
+.services .services-content .image img {
+    width: 260px;
+}
+@media (max-width: 1199px){
+    .image-column{
+        display: none;
+    }
+}
+/* End Services */
+/* Start Portfolio */
+.portfolio {
+    padding-top: var(--secondery-color);
+    padding-bottom: var(--secondery-color);
+    background-color: var(--section-color);
+}
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    grid-gap: 30px;
+    margin-top: 80px;
+}
+
+.portfolio .portfolio-content .card {
+    background-color: white;
+}
+
+.portfolio .portfolio-content .card img {
+    max-width: 100%;
+    height: 200px;
+}
+
+.portfolio .portfolio-content .card .card-content{
+    padding: 20px;
+}
+.portfolio .portfolio-content .card .card-content h3 {
+    margin: 0;
+}
+.portfolio .portfolio-content .card .card-content p {
+    margin-bottom: 0;
+    color: #777;
+    line-height: 1.6;
+}
+/* End Portfolio */
+/* Start About */
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 60px);
+}
+.about .about-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px){
+    .about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+@media (max-width: 991px) {
+    .about .about-content .image{
+        margin: 0 auto 60px;
+    }
+}
+.about .about-content .image::before{
+    content: "";
+    position: absolute;
+    background-color: #ebeced;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+}
+.about .about-content .image::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    z-index: -1;
+    right: -150px;
+    top: -30px;
+}
+
+@media (max-width: 991px){
+    .about .about-content .image::before,
+    .about .about-content .image::after {
+        display: none;
+    }
+}
+.about .about-content .image img {
+    max-width: 100%;
+}
+
+.about .about-content .text {
+    flex-basis: calc(100% - 500px);
+    /* flex: 1;
+    padding-left: 200px; */
+}
+.about .about-content .text p:first-of-type{
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+.about .about-content .text hr{
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+.about .about-content .text p:last-of-type{
+    line-height: 2;
+    color: #777;
+}
+/* End About */
+/* Start Contact */
+.contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-color);
+}
+.contact .info {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    text-align: center;
+}
+
+.contact .info .label {
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--secondery-color);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+.contact .info .link {
+    display: block;
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--main-color);
+    text-decoration: none;
+}
+.contact .info .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondery-color);
+}
+
+@media (max-width: 767px) {
+    .contact .info .label,
+    .contact .info .link{
+        font-size: 20px;
+    }
+    .contact .info .social{
+        font-size: 12px;
+    }
+}
+
+/* End Contact */
+.footer {
+    background-color: var(--secondery-color);
+    /* justify-content: center;
+    display: flex; */
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+}
+.footer span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+/* The difference between the two approaches lies in their application and effect on different types of elements.
+
+justify-content: center; display: flex;
+This combination of CSS properties is used to horizontally center items within a flex container.
+When you set the display property to flex, it creates a flex container,
+and the justify-content property is used to align the flex items (child elements) along the main axis
+(horizontal axis by default). By setting justify-content: center,
+the items within the container will be horizontally centered.
+
+text-align: center;
+The text-align property is used to horizontally center the text content within an element.
+It applies to inline-level and block-level elements. When you set text-align: center on a block-level element,
+such as a div or a paragraph, it will center-align the text inside that element.
+
+In summary, the difference is that the first approach using justify-content and display:
+lex is used to center flex items within a flex container,
+while the second approach using text-align: center is used to center the text content within an element
+The first approach is more suitable for centering multiple items within a container,
+while the second approach is ideal for centering text content. */
